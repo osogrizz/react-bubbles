@@ -16,6 +16,9 @@ const Login = (props) => {
       localStorage.setItem('token', res.data.payload)
       props.history.push('/colors')
     })
+    .catch(err => {
+      console.log(err)
+    })
    }
 
   // const [credentials, setCredentials] = useState({
