@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { Router } from 'react-router-dom'
 import ReactDOM from "react-dom";
+import history from './utils/history'
 import App from "./App";
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Router history={history}><App /></Router>, rootElement);
