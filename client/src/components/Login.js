@@ -10,7 +10,7 @@ const Login = (props) => {
 
 
   const onSubmit = data => { 
-    console.log(data)
+    // console.log(data)
     axiosWithAuth().post('http://localhost:5000/api/login', data)
     .then(res => {
       localStorage.setItem('token', res.data.payload)
