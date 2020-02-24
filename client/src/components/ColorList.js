@@ -48,14 +48,18 @@ const ColorList = ({ colors, updateColors, ...props }) => {
 
 
   const addColor = () => {
-    axiosWithAuth()
-    .post(`/api/colors`, colorToEdit)
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    // if (colorToEdit === initialColor) {
+    //   return
+    // }
+      axiosWithAuth()
+      .post(`/api/colors`, colorToEdit)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
   }
 
   return (
@@ -122,6 +126,7 @@ const ColorList = ({ colors, updateColors, ...props }) => {
                 setColorToEdit({ ...colorToEdit, color: e.target.value })
               }
               value={colorToEdit.color}
+              required
             />
           </label>
           <label>
@@ -134,11 +139,11 @@ const ColorList = ({ colors, updateColors, ...props }) => {
                 })
               }
               value={colorToEdit.code.hex}
+              required
             />
           </label>
           <div className="button-row">
-            <button type="submit">save</button>
-            <button onClick={() => setEditing(false)}>cancel</button>
+            <button type="submit">add</button>
           </div>
       </form>
     </div>
