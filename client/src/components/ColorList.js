@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from "axios";
 
 const initialColor = {
   color: "",
   code: { hex: "" }
 };
 
-const ColorList = ({ colors, updateColors, ...props }) => {
-  console.log('props', props)
+const ColorList = ({ colors, updateColors }) => {
+  console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
-  const [editId, setEditId] = useState();
 
   const editColor = color => {
     setEditing(true);
     setColorToEdit(color);
-    setEditId(color.id)
-    console.log(editId)
   };
 
   const saveEdit = e => {
@@ -24,33 +21,10 @@ const ColorList = ({ colors, updateColors, ...props }) => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
     // where is is saved right now?
-    // axiosWithAuth().put(`colors/${editId}`)
-    axiosWithAuth().put(`/colors/${colorToEdit.id}`, colorToEdit)
-    .then(res => {
-      console.log(res)
-      // updateColors([...colors])
-      props.fetchBubbles()
-
-    })
-    .catch(err => {
-      console.log(err)
-    })
   };
 
   const deleteColor = color => {
     // make a delete request to delete this color
-    console.log(color)
-    axiosWithAuth().delete(`/colors/${color.id}`)
-    .then(res => {
-      console.log(res)
-      // updateColors([...colors])
-      props.fetchBubbles()
-
-    })
-    .catch(err => {
-      console.log(err)
-    })
-    
   };
 
   return (
