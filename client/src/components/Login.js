@@ -7,7 +7,6 @@ const Login = () => {
     <div 
       style={{ 
         display: 'flex', 
-        justifyContent: 'center', 
         alignItems: 'center',
         margin: '0 auto',
         flexDirection: 'column'
