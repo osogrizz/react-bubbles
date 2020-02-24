@@ -3,7 +3,7 @@ import { axiosWithAuth } from "../utils/axiosWIthAuth";
 import useForm from 'react-hook-form'
 
 const Login = (props) => {
-  console.log('loginProps', props)
+  // console.log('loginProps', props)
 
   const { register, handleSubmit, watch, errors } = useForm()
   // make a post request to retrieve a token from the api
