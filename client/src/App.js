@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Login from "./components/Login";
@@ -10,10 +10,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* 
-          Build a PrivateRoute component that will 
-          display BubblePage when you're authenticated 
-        */}
         <Switch>
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/colors" component={BubblePage} />
