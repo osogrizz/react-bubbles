@@ -25,15 +25,24 @@ const ColorList = ({ colors, updateColors, ...props }) => {
     .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
     .then(res => {
       console.log('color-edit', res)
+      props.fetchBubbles()
     })
     .catch(err => {
       console.log(err)
     })
   };
-
+  
   const deleteColor = color => {
     // make a delete request to delete this color
-
+    axiosWithAuth()
+    .delete(`/api/colors/${color.id}`)
+    .then(res => {
+      console.log(res)
+      props.fetchBubbles()
+    })
+    .catch(err => {
+      console.log(err)
+    })
   };
 
   return (
